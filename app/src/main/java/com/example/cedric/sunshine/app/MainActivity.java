@@ -40,7 +40,6 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new ForecastFragment())
                     .commit();
         }
-
     }
 
     @Override
@@ -59,23 +58,19 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent settingsIntent = new Intent(this, SettingsActivity.class);
-            startActivity(settingsIntent);
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
+
         if (id == R.id.action_map) {
             openPreferredLocationInMap();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-    public void openPreferredLocationInMap(){
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String location = sharedPrefs.getString(
-                getString(R.string.pref_location_key),
-                getString(R.string.pref_location_default));
+    private void openPreferredLocationInMap() {
+        String location = Utility.getPreferredLocation(this);
 
         // Using the URI scheme for showing a location found on a map.  This super-handy
         // intent can is detailed in the "Common Intents" page of Android's developer site:
@@ -83,6 +78,7 @@ public class MainActivity extends ActionBarActivity {
         Uri geoLocation = Uri.parse("geo:0,0?").buildUpon()
                 .appendQueryParameter("q", location)
                 .build();
+
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(geoLocation);
 
@@ -91,7 +87,6 @@ public class MainActivity extends ActionBarActivity {
         } else {
             Log.d(LOG_TAG, "Couldn't call " + location + ", no receiving apps installed!");
         }
-
     }
 }
 
