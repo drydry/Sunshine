@@ -23,7 +23,8 @@ public class ForecastAdapter extends CursorAdapter {
      * Prepare the weather high/lows for presentation.
      */
     private String formatHighLows(double high, double low) {
-        boolean isMetric = Utility.isMetric(mContext);
+        //boolean isMetric = Utility.isMetric(mContext);
+        boolean isMetric = false;
         String highLowStr = Utility.formatTemperature(high, isMetric) + "/" + Utility.formatTemperature(low, isMetric);
         return highLowStr;
     }
