@@ -21,7 +21,9 @@ public class DetailActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction().add(R.id.container, new DetailFragment()).commit();
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new DetailFragment())
+                    .commit();
         }
     }
 
