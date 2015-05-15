@@ -1,6 +1,7 @@
 package com.example.cedric.sunshine.app.data;
 
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 public class TestPractice extends AndroidTestCase {
     /*
@@ -12,7 +13,7 @@ public class TestPractice extends AndroidTestCase {
     }
 
     public void testThatDemonstratesAssertions() throws Throwable {
-        int a = 5;
+        int a = 50000;
         int b = 3;
         int c = 5;
         int d = 10;
